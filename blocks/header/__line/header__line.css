@@ -1,0 +1,9 @@
+.header__line{
+    margin-top: 31.6px;
+    border: 1px solid #545454;
+}
+@media screen and (min-width: 880px) {
+    .header__line{
+        margin-top: 41px;
+    }
+}
