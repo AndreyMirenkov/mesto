@@ -11,7 +11,7 @@
         gap: 17px;
     }
 }
-@media screen and (min-width: 880px) {
+@media screen and (min-width: 890px) {
     .elements{
         width: 880px;
         gap: 17px, 20px;

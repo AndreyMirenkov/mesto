@@ -9,7 +9,7 @@
     color: #FFFFFF;
     margin: 0 auto;
 }
-@media screen and (min-width: 880px) {
+@media screen and (min-width: 890px) {
     .profile__name{
         font-size: 42px;
         line-height: 48px;

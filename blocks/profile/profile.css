@@ -7,7 +7,7 @@
     flex-direction: column;
     min-height: 286px;
 }
-@media screen and (min-width: 880px) {
+@media screen and (min-width: 890px) {
     .profile{
         width: 880px;
         flex-direction: row;

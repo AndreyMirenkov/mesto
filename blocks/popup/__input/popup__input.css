@@ -16,7 +16,7 @@
 .popup__input:first-child{
     margin-top: 75px;
 }
-@media screen and (min-width: 880px) {
+@media screen and (min-width: 890px) {
     .popup__input:first-child{
         margin-top: 54px;
     }

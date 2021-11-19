@@ -16,8 +16,9 @@
             <section class="profile">
                 <img src="./images/ZakIvKusto.jpg" alt="Жак-Ив Кусто" class="profile__avatar">
                 <div class="profile__info">
-                    <h1 class="profile__name">Жак-Ив Кусто<button class="profile__edit-button"></button></h1>
-                    <p class="profile__text">Исследователь океана</p>
+                    <h1 class="profile__name profile__name_edit">Жак-Ив Кусто</h1>
+                    <button class="profile__edit-button profile__edit-button_active"></button>
+                    <p class="profile__text profile__text_edit">Исследователь океана</p>
                 </div>
                 <button class="profile__add-button"></button>
             </section>
@@ -77,10 +78,10 @@
                     <path d="M20 18L12 10L20 2L18 0L10 8L2 0L0 2L8 10L0 18L2 20L10 12L18 20L20 18Z" fill="white"/>
                 </svg>
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <form class="popup__form">
-                    <input class="popup__input popup__input_name" type="text" value="1">
-                    <input class="popup__input popup__input_work" type="text">
-                    <button class="popup__save-button" type="submit">Сохранить</button>
+                <form class="popup__form popup__form_edit">
+                    <input class="popup__input popup__input_name" type="text" value="Жак-Ив Кусто">
+                    <input class="popup__input popup__input_work" type="text" value="Исследователь океана">
+                    <button class="popup__save-button popup__save-button_active" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
