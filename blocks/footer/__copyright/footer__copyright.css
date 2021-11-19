@@ -10,8 +10,7 @@
 }
 @media screen and (min-width: 584px) {
     .footer__copyright{
-        padding-right: 282px;
-        padding-left: 20px;
+        padding-right: 302px;
     }
 }
 @media screen and (min-width: 890px) {
@@ -19,13 +18,6 @@
         width: 318px;
         font-size: 18px;
         line-height: 22px;
-        padding-right: 532px;
-        padding-left: 30px;
-    }
-}
-@media screen and (min-width: 1024px) {
-    .footer__copyright{
         padding-right: 562px;
-        padding-left: 0;
     }
 }
