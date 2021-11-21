@@ -8,10 +8,16 @@
     color: #FFFFFF;
     margin: 0 auto;
     padding-top: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 @media screen and (min-width: 890px) {
     .profile__text{
+        max-width: 336px;
         padding-top: 16px;
         margin: 0;
+        font-size: 18px;
+        line-height: 22px;
     }
 }
