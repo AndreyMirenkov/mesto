@@ -128,7 +128,7 @@ function closeByEscape(evt){
 }
 
 editButton.addEventListener('click', () => {
-  const buttonSave = popupProfile.querySelector('.popup__save-buton_profile');
+  const buttonSave = popupProfile.querySelector('.popup__button_profile');
   const input = popupProfile.querySelector('.popup__input');
   input.classList.remove('popup__input_type_error')
   buttonSave.disabled = false;
