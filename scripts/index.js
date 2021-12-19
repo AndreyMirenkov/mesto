@@ -128,6 +128,19 @@ function closeByEscape(evt){
   }
 }
 
+function initializationOverlay (){
+  const overlays = document.querySelectorAll('.popup__overlay');
+  overlays.forEach((overlay) => {
+    overlay.addEventListener('click', closeByOverlay);
+  })
+}
+
+function closeByOverlay(evt){
+  const overlay = evt.target;
+  const openPopup = overlay.closest('.popup')
+  closePopup(openPopup);
+}
+
 editButton.addEventListener('click', () => {
   const inputs = popupProfile.querySelectorAll('.popup__input');
   inputs.forEach((input) =>{
@@ -152,8 +165,9 @@ addButton.addEventListener('click', () => {
 popopAddItemClose.addEventListener('click', () => {closePopup(popupAddItem)});
 addImageButton.addEventListener('submit', handleAddCard);
 buttonImgClose.addEventListener('click', () => {closePopup(popupImg)});
-popupOverlayProfile.addEventListener('click',() => {closePopup(popupProfile)});
-popupOverlayAddItem.addEventListener('click',() => {closePopup(popupAddItem)});
-popupOverlayImg.addEventListener('click',() => {closePopup(popupImg)});
+// popupOverlayProfile.addEventListener('click',() => {closePopup(popupProfile)});
+// popupOverlayAddItem.addEventListener('click',() => {closePopup(popupAddItem)});
+// popupOverlayImg.addEventListener('click',() => {closePopup(popupImg)});
 
 render();
+initializationOverlay();
