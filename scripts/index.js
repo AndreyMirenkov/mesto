@@ -23,6 +23,7 @@ const popupOverlayProfile = document.querySelector('.popup__overlay_profile');
 const popupOverlayAddItem = document.querySelector('.popup__overlay_additem');
 const popupOverlayImg = document.querySelector('.popup__overlay_img');
 
+
 const initialCards = [
     {
       name: 'Архыз',
@@ -106,9 +107,9 @@ function handleAddCard (evt){
   const inputElImage = imageInput.value;
   const itemList = getItem({name: inputElText, link: inputElImage});
   cardsList.prepend(itemList);
+  closePopup(popupAddItem);
   textImageInput.value = '';
   imageInput.value = '';
-  closePopup(popupAddItem);
 }
 
 function handleDelete(evt){
@@ -128,15 +129,12 @@ function closeByEscape(evt){
 }
 
 editButton.addEventListener('click', () => {
-  const buttonSave = popupProfile.querySelector('.popup-addInfoInProfile');
-  const input = popupProfile.querySelector('.popup__input');
-  input.classList.remove('popup__input_type_error')
-  buttonSave.disabled = false;
-  buttonSave.classList.remove('popup__save-button_disabled');
-  const errorMessages = document.querySelectorAll('.popup__error');
-  errorMessages.forEach((errorMessage) =>{
-    errorMessage.textContent ='';
-  })
+  const inputs = popupProfile.querySelectorAll('.popup__input');
+  inputs.forEach((input) =>{
+    input.classList.remove('popup__input_type_error')
+  });
+  buttonNoDisabledForPopupProfile();
+  deleteErrorMessages();
   nameInput.value = newName.textContent;
   workInput.value = newWork.textContent;
   openPopup(popupProfile)
@@ -147,9 +145,7 @@ profileCloseButton.addEventListener('click',() => {closePopup(popupProfile)});
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addButton.addEventListener('click', () => {
-  const buttonSave = addImageButton.querySelector('.popup-addImage')
-  buttonSave.disabled = true;
-  buttonSave.classList.add('popup__save-button_disabled');
+  buttonDisabledForPopupAddImg();
   openPopup(popupAddItem)
 });
 

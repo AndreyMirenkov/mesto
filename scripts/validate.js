@@ -1,3 +1,21 @@
+const buttonNoDisabledForPopupProfile =() => {
+  const saveButton = document.querySelector('.popup-addInfoInProfile')
+  saveButton.disabled = false;
+  saveButton.classList.remove('popup__save-button_disabled')
+}
+
+const buttonDisabledForPopupAddImg =() => {
+  const saveButton = document.querySelector('.popup-addImage')
+  saveButton.disabled = true;
+  saveButton.classList.add('popup__save-button_disabled')
+}
+
+const deleteErrorMessages = () =>{
+  const errorMessages = document.querySelectorAll('.popup__error');
+  errorMessages.forEach((errorMessage) =>{
+    errorMessage.textContent ='';
+  })
+}
 
 const showError = (form, input, errorMessageText, errorMessageClass, inputErrorClass) => {
   const errorMessage = form.querySelector(`#${input.id}-error`);
@@ -18,7 +36,6 @@ const hasInvalidInput = (inputs) => {
 }
 
 const toggleButtonError = (inputs, button, inactiveButtonClass) => {
-  console.log(hasInvalidInput(inputs))
   if (hasInvalidInput(inputs)) {
       button.classList.add(inactiveButtonClass);
       button.disabled = true;
