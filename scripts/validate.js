@@ -1,11 +1,11 @@
-const buttonNoDisabledForPopupProfile =() => {
+const turningOnButtonForPopupProfile =() => {
   const saveButton = document.querySelector('.popup-addInfoInProfile')
   saveButton.disabled = false;
   saveButton.classList.remove('popup__save-button_disabled')
 }
 
-const buttonDisabledForPopupAddImg =() => {
-  const saveButton = document.querySelector('.popup-addImage')
+const disabledButtonForPopupAddImg =(popup) => {
+  const saveButton = popup.querySelector('.popup__save-button')
   saveButton.disabled = true;
   saveButton.classList.add('popup__save-button_disabled')
 }

@@ -4,7 +4,7 @@ const popupProfile = document.querySelector('.popup_profile');
 const profileCloseButton = popupProfile.querySelector('.popup__close');
 const profileForm = popupProfile.querySelector('.popup__form-profile');
 const addButton = document.querySelector('.profile__add-button');
-const popopAddItemClose= document.querySelector('.popup__close_addItem');
+const popupAddItemClose= document.querySelector('.popup__close_addItem');
 const popupAddItem = document.querySelector('.popup_additem')
 const addImageButton = document.querySelector('.popup__form-image');
 const nameInput = popupProfile.querySelector('.popup__input_type_name');
@@ -122,8 +122,8 @@ function handleLike(evt){
   element.classList.toggle('element__like-button_active');
 }
 function closeByEscape(evt){
-  const openPopup = document.querySelector('.popup_opened')
   if (evt.key ==='Escape'){
+    const openPopup = document.querySelector('.popup_opened')
     closePopup(openPopup)
   }
 }
@@ -146,7 +146,7 @@ editButton.addEventListener('click', () => {
   inputs.forEach((input) =>{
     input.classList.remove('popup__input_type_error')
   });
-  buttonNoDisabledForPopupProfile();
+  turningOnButtonForPopupProfile();
   deleteErrorMessages();
   nameInput.value = newName.textContent;
   workInput.value = newWork.textContent;
@@ -158,16 +158,13 @@ profileCloseButton.addEventListener('click',() => {closePopup(popupProfile)});
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addButton.addEventListener('click', () => {
-  buttonDisabledForPopupAddImg();
+  disabledButtonForPopupAddImg(popupAddItem);
   openPopup(popupAddItem)
 });
 
-popopAddItemClose.addEventListener('click', () => {closePopup(popupAddItem)});
+popupAddItemClose.addEventListener('click', () => {closePopup(popupAddItem)});
 addImageButton.addEventListener('submit', handleAddCard);
 buttonImgClose.addEventListener('click', () => {closePopup(popupImg)});
-// popupOverlayProfile.addEventListener('click',() => {closePopup(popupProfile)});
-// popupOverlayAddItem.addEventListener('click',() => {closePopup(popupAddItem)});
-// popupOverlayImg.addEventListener('click',() => {closePopup(popupImg)});
 
 render();
 initializationOverlay();
