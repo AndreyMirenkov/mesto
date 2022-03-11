@@ -15,13 +15,6 @@ export class Card {
         this._buttonLike.classList.toggle('element__like-button_active');
       }
 
-    // _handleImg(){
-    //     popupImgSrc.src = this._link;
-    //     popupImgSrc.alt = this._name
-    //     popupImgText.textContent = this._name;
-    //     openPopup(popupImg);
-    //     }
-
     _setEventListeners(){
         this._buttonDelete = this._newItem.querySelector('.element__trash');
 
