@@ -73,9 +73,14 @@ const initialCards = [
 
 
 function render(item){
+  const cardElement = createCard(item)
+  cardsList.append(cardElement);
+}
+
+function createCard(item){
   const card = new Card(item, '#template-elements', handleImg)
   const CardEl = card.getItem();
-  cardsList.append(CardEl);
+  return CardEl;
 }
 
 function openPopup(item){
@@ -106,12 +111,9 @@ function handleAddCard (evt){
   evt.preventDefault();
   const inputElText = textImageInput.value;
   const inputElImage = imageInput.value;
-  const itemList = new Card({name:inputElText, link: inputElImage}, '#template-elements', handleImg);
-  const newItem  = itemList.getItem()
+  const newItem = createCard({name:inputElText, link: inputElImage});
   cardsList.prepend(newItem);
   closePopup(popupAddItem);
-  textImageInput.value = '';
-  imageInput.value = '';
 }
 
 function closeByEscape(evt){
@@ -135,8 +137,7 @@ function closeByOverlay(evt){
 }
 
 editButton.addEventListener('click', () => {
-  editProfileValidator.resetErrors();
-  editProfileValidator.ebableSubmitButton();
+  editProfileValidator.resetValidation();
   nameInput.value = newName.textContent;
   workInput.value = newWork.textContent;
   openPopup(popupProfile)
@@ -147,7 +148,7 @@ profileCloseButton.addEventListener('click',() => {closePopup(popupProfile)});
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addButton.addEventListener('click', () => {
-  addCardValidator.enableValidation()
+  addCardValidator.resetValidation()
   openPopup(popupAddItem)
 });
 
