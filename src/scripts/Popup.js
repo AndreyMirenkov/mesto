@@ -24,7 +24,7 @@ export class Popup {
          const closeButton = this._popup.querySelector('.popup__close')
 
          this._popup.addEventListener('click', (evt) =>{
-             if(!evt.target.closest('.popup__close_by_overlay')|| evt.target === closeButton){
+             if(!evt.target.closest('.popup__close_byoverlay')|| evt.target === closeButton){
                  this.close()
              }
          })
