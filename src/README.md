@@ -13,4 +13,4 @@
 **Ссылка на GitHub Pages**
 
 
-* [Ссылка на работу](https://andreymirenkov.github.io/mesto/index.html)
+* [Ссылка на работу](https://andreymirenkov.github.io/mesto/src/index.html)
