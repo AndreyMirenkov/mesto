@@ -20,7 +20,7 @@ export class Card {
 
         this._buttonDelete.addEventListener('click',this._handleDelete);
         this._buttonLike.addEventListener('click', this._handleLike);
-        this._imageEl.addEventListener('click', () => this._handleCardClick(this._name, this._link));
+        this._imageEl.addEventListener('click', () => this._handleCardClick());
     }
 
     getItem(){
