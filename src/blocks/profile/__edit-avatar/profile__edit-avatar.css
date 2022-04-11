@@ -1,11 +1,17 @@
+
 .profile__edit-avatar{
+    position: absolute;
     background-image: url(../../../images/edit-avatar.svg);
     background-repeat: no-repeat;
-    position: absolute;
-    top: 0px;
-    left: 43px;
     background-color: transparent;
-    opacity: 1;
+    opacity: 0.8;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
     width: 26px;
     height: 26px;
+    border: 0;
+    top: 47px;
+    left: 47px;
+    visibility: hidden ;
 }

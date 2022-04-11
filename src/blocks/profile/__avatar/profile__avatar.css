@@ -7,10 +7,6 @@
     transition-property: opacity;
     transition-duration: 0.2s;
     transition-timing-function: linear;
-    cursor: pointer;
-}
-.profile__avatar:hover{
-  opacity: 0.8;
 }
 @media screen and (min-width: 890px) {
     .profile__avatar{
