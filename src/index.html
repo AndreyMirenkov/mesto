@@ -13,13 +13,13 @@
         <main class="content">
             <section class="profile">
                 <div class = "profile__avatar-button"> 
-                    <img src="<%=require('./images/ZakIvKusto.jpg')%>" alt="Жак-Ив Кусто" class="profile__avatar">
+                    <img src="" alt="Аватар" class="profile__avatar">
                     <div class = "profile__edit-avatar"></div>
                 </div>
                 <div class="profile__info">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <h1 class="profile__name"></h1>
                     <button class="profile__edit-button" type="button"></button>
-                    <p class="profile__text">Исследователь океана</p>
+                    <p class="profile__text"></p>
                 </div>
                 <button class="profile__add-button" type="button"></button>
             </section>
@@ -84,14 +84,13 @@
         <div class="popup popup_delete">
             <div class="popup__overlay"></div>
             <div class="popup__content">
-                <button class="popup__close popup__close_addItem" type="button"></button>
+                <button class="popup__close" type="button"></button>
                 <h2 class="popup__title">Вы уверены?</h2>
-                <form class="popup__form popup__form-image" name="form" novalidate>
-                    <button class="popup__save-button popup-addImage" type="submit">Да</button>
+                <form class="popup__form" name="form" novalidate>
+                    <button class="popup__save-button" type="submit">Да</button>
                 </form>
             </div>
         </div>
-
         <div class="popup popup_avatar">
             <div class="popup__overlay"></div>
             <div class="popup__content">
@@ -104,7 +103,7 @@
                 </form>
             </div>
         </div>    
-
     </div>
 </body>
 </html>
+<!--"<%=require('./images/ZakIvKusto.jpg')%>" -->
