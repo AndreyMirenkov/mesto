@@ -11,27 +11,15 @@ import './index.css';
 
 let userId
 
-api.getProfile()
-.then(res => {
+
+Promise.all([api.getProfile(), api.getInitialCards()])
+.then(([res, dataList])=>{
   userInfo.setAvatarInfo(res.avatar);
   userInfo.setUserInfo(res.name, res.about);
   userId = res._id
-})
 
-api.getInitialCards()
-.then(dataList => {
-  dataList.forEach(data =>{
-    const card = createCard({
-      name: data.name,
-      link: data.link,
-      likes: data.likes,
-      id: data._id,
-      userId: userId,
-      ownerId: data.owner._id
-    })
-    section.addItem(card)
-  })
-})
+  section.renderItems(dataList);
+}).catch(res => console.log(res))
 
 
 const editButton = document.querySelector('.profile__edit-button');
@@ -56,7 +44,14 @@ editAvatarValidator.enableValidation();
 
 
 function render(item){
-  const cardElement = createCard(item)
+  const cardElement = createCard({
+    name: item.name,
+    link: item.link,
+    likes: item.likes,
+    id: item._id,
+    userId: userId,
+    ownerId: item.owner._id
+  })
   section.addItem(cardElement)
 }
 
@@ -70,19 +65,19 @@ function createCard(item){
       .then(res =>{
          confirmPopup.close();
          card.deleteCard();
-      })
+      }).catch(res => console.log(res))
     })
   }, (id) => {
     if(card.isLiked()){
       api.deleteLikes(id)
     .then(res => {
       card.setLikes(res.likes);
-    })
+    }).catch(res => console.log(res))
     } else {
       api.addLikes(id)
     .then(res => {
       card.setLikes(res.likes);
-    })
+    }).catch(res => console.log(res))
     }
   })
   const cardEl = card.getItem();
@@ -97,7 +92,9 @@ const handleProfileFormSubmit = (data) => {
     userInfo.setUserInfo(name, work);
     editProfilePopup.close();
     nameInput.value = res.name
-    workInput.value = res.about 
+    workInput.value = res.about
+  }).catch(res => console.log(res))
+  .finally(() => {
     editProfilePopup.removeSaveTextButton();
   })
 }
@@ -117,6 +114,8 @@ const handleAddCard = (data) =>{
     })
     section.addItem(newItem);
     addCardPopup.close();
+  }).catch(res => console.log(res))
+  .finally(() => {
     addCardPopup.removeSaveTextButton();
   })
 }
@@ -128,6 +127,8 @@ const handleAvatarFormSubmit = (data) => {
   .then(res => {
     userInfo.setAvatarInfo(res.avatar);
     avatarPopup.close();
+  }).catch(res => console.log(res))
+  .finally(() => {
     avatarPopup.removeSaveTextButton();
   })
 }
@@ -151,7 +152,6 @@ addButton.addEventListener('click', () => {
 });
 
 const section = new Section ({items: [], renderer: render}, '.elements');
-section.renderItems()
 
 const popupWithImage = new PopupWithImage('.popup_img');
 popupWithImage.setEventListeners();

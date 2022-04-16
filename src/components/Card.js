@@ -40,8 +40,7 @@ export class Card {
 
     setLikes(newLikes){
       this._likes = newLikes;
-      const likeCountElement = this._newItem.querySelector('.element__number');
-      likeCountElement.textContent = this._likes.length;
+      this._likeCountElement.textContent = this._likes.length;
 
       if(this.isLiked()){
         this._addLike();
@@ -54,6 +53,7 @@ export class Card {
         this._newItem = this._cardTemplate.cloneNode(true);
         this._imageEl = this._newItem.querySelector('.element__image');
         const textEl = this._newItem.querySelector('.element__text');
+        this._likeCountElement = this._newItem.querySelector('.element__number');
     
         this._imageEl.src = this._link;
         this._imageEl.alt = this._name;

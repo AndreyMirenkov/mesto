@@ -4,30 +4,34 @@ class Api {
       this._baseUrl = baseUrl;
     }
   
+    _checkResponce(res){
+        if (res.ok){
+            return res.json();
+        }
+        return Promise.reject(`Ошибка ${res.status}`)
+    }
+
     getProfile(){
         return fetch(`${this._baseUrl}/users/me`,{
             headers: this._headers
-        }).then(res => res.ok ? res.json() : Promise.reject(res.status))
-        .catch(res => console.log(res));
+        }).then(this._checkResponce)
     }
 
     editProfile(name, about){
-       return fetch('https://mesto.nomoreparties.co/v1/cohort-39/users/me', {
+       return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
                 name,
                 about
             })
-        }).then(res => res.ok ? res.json() : Promise.reject(res.status))
-        .catch(res => console.log(res));
+        }).then(this._checkResponce)
     }
 
     getInitialCards() {
         return fetch(`${this._baseUrl}/cards`,{
             headers: this._headers
-        }).then(res => res.ok ? res.json() : Promise.reject(res.status))
-        .catch(res => console.log(res));
+        }).then(this._checkResponce)
     }
   
 
@@ -39,32 +43,28 @@ class Api {
                 name,
                 link
             })
-        }).then(res => res.ok ? res.json() : Promise.reject(res.status))
-        .catch(res => console.log(res));
+        }).then(this._checkResponce)
     }
 
     deleteCard(id){
         return fetch(`${this._baseUrl}/cards/${id}`,{
             method: 'DELETE',
             headers: this._headers
-        }).then(res => res.ok ? res.json() : Promise.reject(res.status))
-        .catch(res => console.log(res));
+        }).then(this._checkResponce)
     }
 
     deleteLikes(id){
         return fetch(`${this._baseUrl}/cards/${id}/likes`,{
             method: 'DELETE',
             headers: this._headers
-        }).then(res => res.ok ? res.json() : Promise.reject(res.status))
-        .catch(res => console.log(res));
+        }).then(this._checkResponce)
     }
 
     addLikes(id){
         return fetch(`${this._baseUrl}/cards/${id}/likes`,{
             method: 'PUT',
             headers: this._headers
-        }).then(res => res.ok ? res.json() : Promise.reject(res.status))
-        .catch(res => console.log(res));
+        }).then(this._checkResponce)
     }
 
     updateAvatar(avatar){
@@ -74,8 +74,7 @@ class Api {
             body: JSON.stringify({
                 avatar
             })
-        }).then(res => res.ok ? res.json() : Promise.reject(res.status))
-        .catch(res => console.log(res));
+        }).then(this._checkResponce)
     }
     // другие методы работы с API
   }
